@@ -10,4 +10,21 @@
         <maven.compiler.release>26</maven.compiler.release>
         <exec.mainClass>com.mycompany.rotasegura.RotaSegura</exec.mainClass>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <mainClass>br.com.rotasegura.aplicacao.Principal</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
