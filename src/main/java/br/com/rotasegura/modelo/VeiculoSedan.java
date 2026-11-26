@@ -1,11 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.rotasegura.modelo;
 
 /**
- *
  * @author MARCELO JUNIOR
  */
 public class VeiculoSedan extends Veiculo {
@@ -16,6 +11,8 @@ public class VeiculoSedan extends Veiculo {
         this.capacidadePortaMalasLitros = capacidadePortaMalasLitros;
     }
 
+    public double getCapacidadePortaMalasLitros() { return capacidadePortaMalasLitros; }
+
     @Override
     public double calcularValorDiaria() {
         return getValorBaseDiaria() * 1.20;
@@ -25,4 +22,7 @@ public class VeiculoSedan extends Veiculo {
     public double calcularSeguro(int dias) {
         return 45.0 * dias;
     }
+
+    @Override
+    public String getCategoria() { return "Sedan"; }
 }

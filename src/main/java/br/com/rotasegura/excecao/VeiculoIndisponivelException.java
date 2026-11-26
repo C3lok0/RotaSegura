@@ -8,6 +8,7 @@ package br.com.rotasegura.excecao;
  *
  * @author MARCELO JUNIOR
  */
+@SuppressWarnings({"serial", "this-escape"})
 public class VeiculoIndisponivelException extends Exception {
     public VeiculoIndisponivelException(String mensagem) {
         super(mensagem);

@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.rotasegura.modelo;
 
 /**
- *
  * @author MARCELO JUNIOR
  */
-
+@SuppressWarnings("this-escape")
 public abstract class Veiculo implements Imprimivel {
     private String placa;
     private String marca;
@@ -19,8 +14,8 @@ public abstract class Veiculo implements Imprimivel {
 
     public Veiculo(String placa, String marca, String modelo, int ano, double valorBaseDiaria) {
         setPlaca(placa);
-        this.marca = marca;
-        this.modelo = modelo;
+        setMarca(marca);
+        setModelo(modelo);
         setAno(ano);
         setValorBaseDiaria(valorBaseDiaria);
         this.disponivel = true;
@@ -28,17 +23,32 @@ public abstract class Veiculo implements Imprimivel {
 
     public abstract double calcularValorDiaria();
     public abstract double calcularSeguro(int dias);
+    /** Nome da categoria do veículo (Popular, Sedan ou SUV). */
+    public abstract String getCategoria();
 
     public String getPlaca() { return placa; }
     public void setPlaca(String placa) {
         if (placa == null || placa.trim().length() < 7) {
             throw new IllegalArgumentException("Placa inválida. Deve conter ao menos 7 caracteres.");
         }
-        this.placa = placa.toUpperCase();
+        this.placa = placa.trim().toUpperCase();
     }
 
     public String getMarca() { return marca; }
+    public void setMarca(String marca) {
+        if (marca == null || marca.trim().isEmpty()) {
+            throw new IllegalArgumentException("Marca obrigatória.");
+        }
+        this.marca = marca.trim();
+    }
+
     public String getModelo() { return modelo; }
+    public void setModelo(String modelo) {
+        if (modelo == null || modelo.trim().isEmpty()) {
+            throw new IllegalArgumentException("Modelo obrigatório.");
+        }
+        this.modelo = modelo.trim();
+    }
 
     public int getAno() { return ano; }
     public void setAno(int ano) {
@@ -63,5 +73,10 @@ public abstract class Veiculo implements Imprimivel {
     public String gerarComprovante() {
         return String.format("Veículo: %s %s | Placa: %s | Diária Base: R$ %.2f | Status: %s",
                 marca, modelo, placa, valorBaseDiaria, (disponivel ? "Disponível" : "Alugado"));
+    }
+
+    @Override
+    public String toString() {
+        return marca + " " + modelo + " - " + placa;
     }
 }

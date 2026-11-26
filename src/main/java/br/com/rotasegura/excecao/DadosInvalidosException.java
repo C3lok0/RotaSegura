@@ -8,6 +8,7 @@ package br.com.rotasegura.excecao;
  *
  * @author MARCELO JUNIOR
  */
+@SuppressWarnings({"serial", "this-escape"})
 public class DadosInvalidosException extends Exception {
     public DadosInvalidosException(String mensagem) {
         super(mensagem);

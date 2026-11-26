@@ -1,11 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.rotasegura.modelo;
 
 /**
- *
  * @author MARCELO JUNIOR
  */
 public class VeiculoPopular extends Veiculo {
@@ -16,6 +11,8 @@ public class VeiculoPopular extends Veiculo {
         this.possuiArCondicionado = possuiArCondicionado;
     }
 
+    public boolean isPossuiArCondicionado() { return possuiArCondicionado; }
+
     @Override
     public double calcularValorDiaria() {
         return possuiArCondicionado ? getValorBaseDiaria() * 1.10 : getValorBaseDiaria();
@@ -25,4 +22,7 @@ public class VeiculoPopular extends Veiculo {
     public double calcularSeguro(int dias) {
         return 25.0 * dias;
     }
+
+    @Override
+    public String getCategoria() { return "Popular"; }
 }
